@@ -21,9 +21,9 @@ for(i in 1:nrow(inp)){
       reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
     }
   }else if(rel[6]=="!="){
-      if(reg_vals[which(rel[5]==reg_names)] != as.numeric(rel[7])){
-        reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
-      }
+    if(reg_vals[which(rel[5]==reg_names)] != as.numeric(rel[7])){
+      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    }
   }else if(rel[6]==">="){
     if(reg_vals[which(rel[5]==reg_names)] >= as.numeric(rel[7])){
       reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
