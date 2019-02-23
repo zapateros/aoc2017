@@ -11,34 +11,41 @@ mt        <- NULL
 sign      <- NULL
 for(i in 1:nrow(inp)){
   rel <- inp[i,]
+  
   if(rel[2] == "dec"){
     sign <- -1
   }else{
     sign <- 1
   }
+  
+  r1 <- which(reg_names==rel[1])
+  r3 <- sign * as.numeric(rel[3])
+  r5 <- reg_vals[which(rel[5]==reg_names)]
+  r7 <- as.numeric(rel[7])
+  
   if(rel[6]=="<"){
-    if(reg_vals[which(rel[5]==reg_names)] < as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 < r7){
+      reg_vals[r1] <- reg_vals[r1] + r3 
     }
   }else if(rel[6]=="!="){
-    if(reg_vals[which(rel[5]==reg_names)] != as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 != r7){
+      reg_vals[r1] <- reg_vals[r1] + r3 
     }
   }else if(rel[6]==">="){
-    if(reg_vals[which(rel[5]==reg_names)] >= as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 >= r7){
+      reg_vals[r1] <- reg_vals[r1] + r3 
     }
   }else if(rel[6]=="=="){
-    if(reg_vals[which(rel[5]==reg_names)] == as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 == r7){
+      reg_vals[r1] <- reg_vals[r1] + r3
     }
   }else if(rel[6]=="<="){
-    if(reg_vals[which(rel[5]==reg_names)] <= as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 <= r7){
+      reg_vals[r1] <- reg_vals[r1] + r3 
     }
   }else if(rel[6]==">"){
-    if(reg_vals[which(rel[5]==reg_names)] > as.numeric(rel[7])){
-      reg_vals[which(reg_names==rel[1])] <- reg_vals[which(reg_names==rel[1])] + sign * as.numeric(rel[3]) 
+    if(r5 > r7){
+      reg_vals[r1] <- reg_vals[r1] + r3
     }
   }
    mt <- rbind(mt, reg_vals)
