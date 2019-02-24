@@ -21,7 +21,7 @@ while(nchar(inp) > 0){
 }
 
 # Part One
-cat(garb)
+cat(score)
 
 # Part Two
-cat(score)
+cat(garb)
