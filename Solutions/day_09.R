@@ -1,7 +1,7 @@
 input <- readLines("input_day_09.txt")
 
 # Remove exclamation marks
-input <- gsub('\"',"s",input)
+input <- gsub('\"', "s", input)
 input <- gsub("!!", "", input)
 input <- gsub("!.", "", input)
 
@@ -15,8 +15,8 @@ inp <- gsub("[^{}]+", "", inp)
 # Calculate score
 score <- 0
 while(nchar(inp) > 0){
-  worth <- regexpr("}",inp)[1] - 1
-  inp   <- sub("\\{}","",inp)
+  worth <- regexpr("}", inp)[1] - 1
+  inp   <- sub("\\{}", "", inp)
   score <- score + worth
 }
 
