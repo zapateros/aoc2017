@@ -1,3 +1,4 @@
+setwd("C:/Users/paul/Documents/R-projects/AoC 2017/day_19")
 input <- readLines("input_day_19.txt")
 mt<- NULL
 for(i in 1:length(input)){
@@ -21,17 +22,11 @@ count <- 0
 word  <- NULL
 while(TRUE){
   count <- count + 1
-  if(mt[y, x] == "|"){
+  if(mt[y, x] == "|" | mt[y, x] == "-"){
     if(dir == "l" | dir == "r"){
       x <- x + dx[dir_n]
     }else{
       y <- y + dy[dir_n]
-    }
-  }else if(mt[y, x] == "-"){
-    if(dir == "d" | dir == "u"){
-      y <- y + dy[dir_n]
-    }else{
-      x <- x + dx[dir_n]
     }
   }else if(mt[y, x] == "+"){
     if(dir == "d" | dir == "u"){
