@@ -70,3 +70,5 @@ while(TRUE){
     break
   }  
 }
+result <- sum(tape)
+cat(result)
